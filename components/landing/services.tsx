@@ -35,7 +35,7 @@ function ServiceCard({
 
   return (
     <Card
-      ref={ref}
+      ref={ref as React.Ref<HTMLDivElement>}
       className={`relative group hover-scale card-hover border-0 bg-white ${
         inView ? "animate-fade-up" : "opacity-0"
       }`}
@@ -162,7 +162,7 @@ export function Services() {
 
       <div className="container relative z-10">
         <div
-          ref={ref}
+          ref={ref as React.Ref<HTMLDivElement>}
           className={`text-center max-w-2xl mx-auto mb-16 ${
             inView ? "animate-fade-up" : "opacity-0"
           }`}

@@ -102,7 +102,7 @@ export function Benefits() {
           </div>
 
           <div
-            ref={imageRef}
+            ref={imageRef as React.Ref<HTMLDivElement>}
             className={`relative rounded-2xl overflow-hidden shadow-lg transition-all duration-700 ease-out delay-300 \${imageInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}
           >
             <div className="aspect-w-4 aspect-h-3 relative h-[500px]">

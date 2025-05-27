@@ -8,23 +8,6 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {
-      colors: {
-        primary: '#4b8de8',
-        secondary: '#3e76c3',
-        darkblue: '#174f97',
-      },
-      keyframes: {
-        fadeInUp: {
-          '0%': { opacity: '0', transform: 'translateY(1rem)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        }
-      },
-      animation: {
-        fadeInUp: 'fadeInUp 0.6s ease-out forwards',
-      },
-    },
-
     container: {
       center: true,
       padding: '2rem',
@@ -34,6 +17,9 @@ const config: Config = {
     },
     extend: {
       colors: {
+        primary: '#4b8de8',
+        secondary: '#3e76c3',
+        darkblue: '#174f97',
         brand: {
           blue: '#4b8de8',
           darkBlue: '#174f97',
@@ -47,11 +33,11 @@ const config: Config = {
         ring: 'hsl(var(--ring))',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
-        primary: {
+        primaryPalette: {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))',
         },
-        secondary: {
+        secondaryPalette: {
           DEFAULT: 'hsl(var(--secondary))',
           foreground: 'hsl(var(--secondary-foreground))',
         },
@@ -82,6 +68,10 @@ const config: Config = {
         sm: 'calc(var(--radius) - 4px)',
       },
       keyframes: {
+        fadeInUp: {
+          '0%': { opacity: '0', transform: 'translateY(1rem)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
         'accordion-down': {
           from: { height: '0' },
           to: { height: 'var(--radix-accordion-content-height)' },
@@ -116,6 +106,7 @@ const config: Config = {
         },
       },
       animation: {
+        fadeInUp: 'fadeInUp 0.6s ease-out forwards',
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         float: 'float 6s ease-in-out infinite',
