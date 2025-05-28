@@ -4,6 +4,11 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Clock, MapPin, Phone, Loader2 } from "lucide-react";
 
+const fadeInVariant = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+};
+
 export function ContactCTA() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -29,9 +34,9 @@ export function ContactCTA() {
   return (
     <motion.section
       id="contact"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
+      variants={fadeInVariant}
+      initial="hidden"
+      whileInView="visible"
       viewport={{ once: true }}
       className="relative bg-white py-20 px-4 md:px-10 lg:px-20 font-raleway"
     >
@@ -44,7 +49,7 @@ export function ContactCTA() {
 
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 items-start mt-10">
         {/* Left Column */}
-        <div className="space-y-6">
+        <motion.div variants={fadeInVariant} className="space-y-6">
           <h2 className="text-3xl md:text-4xl font-bold text-[#174f97] font-readex">
             Experiencing Tech Issues Right Now?
           </h2>
@@ -103,10 +108,13 @@ export function ContactCTA() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Right Column - Contact Form */}
-        <div className="bg-[#f3f6fb] p-10 rounded-xl shadow-md mt-4 mb-8">
+        <motion.div
+          variants={fadeInVariant}
+          className="bg-[#f3f6fb] p-10 rounded-xl shadow-md mt-4 mb-8"
+        >
           <h3 className="text-2xl font-semibold mb-4 text-[#174f97] font-readex">
             Get Your Free Consultation
           </h3>
@@ -152,7 +160,7 @@ export function ContactCTA() {
               of Service.
             </p>
           </form>
-        </div>
+        </motion.div>
       </div>
     </motion.section>
   );

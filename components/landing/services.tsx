@@ -34,47 +34,51 @@ function ServiceCard({
   const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true });
 
   return (
-    <Card
+    <div
       ref={ref as React.Ref<HTMLDivElement>}
-      className={`relative group hover-scale card-hover border-0 bg-white ${
-        inView ? "animate-fade-up" : "opacity-0"
+      className={`transition-all duration-700 ease-out transform ${
+        inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
       }`}
-      style={{ animationDelay: `${delay}s` }}
+      style={{ transitionDelay: `${delay}s` }}
     >
-      <div className="absolute inset-0 bg-gradient-radial opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <Card className="relative group border-0 bg-white hover-scale card-hover">
+        <div className="absolute inset-0 bg-gradient-radial opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-      <CardContent className="relative z-10 p-8">
-        <div className="flex flex-col h-full space-y-6">
-          <div className="flex items-start gap-4">
-            <div className="w-12 h-12 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300">
-              {icon}
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold mb-2 group-hover:text-brand-blue transition-colors">
-                {title}
-              </h3>
-              <p className="text-gray-600 group-hover:text-gray-700 transition-colors">
-                {description}
-              </p>
-            </div>
-          </div>
-
-          <div className="space-y-3 pt-4">
-            {features.map((feature, index) => (
-              <div
-                key={index}
-                className="flex items-center gap-2 text-sm text-gray-600"
-              >
-                <CheckCircle2 className="h-4 w-4 text-brand-blue" />
-                <span>{feature}</span>
+        <CardContent className="relative z-10 p-8">
+          <div className="flex flex-col h-full space-y-6">
+            {/* ICON + TEXT */}
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 p-2 rounded-full bg-brand-blue/10 flex items-center justify-center text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300">
+                {icon}
               </div>
-            ))}
-          </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-2 group-hover:text-brand-blue transition-colors">
+                  {title}
+                </h3>
+                <p className="text-gray-600 group-hover:text-gray-700 transition-colors">
+                  {description}
+                </p>
+              </div>
+            </div>
 
-          <div className="pt-2 mt-auto"></div>
-        </div>
-      </CardContent>
-    </Card>
+            {/* BULLET POINTS */}
+            <div className="space-y-3 pt-4">
+              {features.map((feature, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-2 text-sm text-gray-600"
+                >
+                  <CheckCircle2 className="h-4 w-4 text-brand-blue" />
+                  <span>{feature}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="pt-2 mt-auto"></div>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
   );
 }
 

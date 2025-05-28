@@ -37,7 +37,7 @@ export function Hero() {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+            <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-6">
               <Button
                 className="magnetic-button bg-brand-blue hover:bg-brand-darkBlue text-white px-8 py-6 text-lg"
                 onClick={() =>
